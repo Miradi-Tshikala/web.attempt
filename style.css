@@ -1,0 +1,93 @@
+/* Custom CSS for the watermark and specific colors */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Removed overflow: hidden from body to allow scrolling */
+}
+
+/* Watermark effect - made even more subtle */
+body::before {
+    content: "TNA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg); /* Center and rotate */
+    font-size: 18vw; /* Slightly larger for impact, but more transparent */
+    font-weight: 900; /* Bolder */
+    color: rgba(0, 0, 0, 0.02); /* Very light, transparent black - even less opaque */
+    z-index: -1; /* Behind other content */
+    pointer-events: none; /* Allow clicks through watermark */
+    white-space: nowrap; /* Prevent wrapping */
+    letter-spacing: 0.1em; /* Add some spacing */
+}
+
+/* Custom color classes for consistency */
+.bg-custom-red { background-color: #EF4444; } /* Tailwind red-500 - matches reddish tones in logo */
+.bg-custom-blue { background-color: #3B82F6; } /* Tailwind blue-500 - matches blue in logo */
+.bg-custom-yellow { background-color: #FACC15; } /* Tailwind yellow-400 - matches yellow background in logo */
+.bg-custom-bg-yellow { background-color: #FFFBEB; } /* Very light yellow for main container background */
+
+.text-custom-red { color: #EF4444; }
+.text-custom-blue { color: #3B82F6; }
+.text-custom-yellow { color: #FACC15; }
+
+/* Additional styling for form elements */
+input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 0.75rem; /* p-3 */
+    border-width: 1px; /* border */
+    border-color: #D1D5DB; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    outline: none; /* focus:outline-none */
+    transition-property: all; /* transition */
+    transition-duration: 200ms; /* duration-200 */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+    box-shadow: 0 0 0 2px var(--tw-ring-color); /* focus:ring-2 */
+    --tw-ring-color: #3B82F6; /* focus:ring-custom-blue */
+}
+
+button {
+    width: 100%;
+    padding-top: 0.75rem; /* py-3 */
+    padding-bottom: 0.75rem; /* py-3 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    border-radius: 0.5rem; /* rounded-lg */
+    color: white; /* text-white */
+    font-weight: 600; /* font-semibold */
+    transition-property: all; /* transition */
+    transition-duration: 300ms; /* duration-300 */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+button:hover {
+    opacity: 0.9; /* opacity-90 */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* hover:shadow-lg */
+}
+
+/* Styling for the message box */
+.message-box {
+    padding: 0.75rem; /* p-3 */
+    margin-top: 1rem; /* mt-4 */
+    border-radius: 0.5rem; /* rounded-lg */
+    color: white; /* text-white */
+    font-weight: 600; /* font-semibold */
+    text-align: center; /* text-center */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    animation: fadeInOut 3s forwards; /* Fade in and out animation */
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
