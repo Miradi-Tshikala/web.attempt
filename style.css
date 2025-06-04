@@ -1,6 +1,6 @@
 /* Custom CSS for the watermark and specific colors */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Bahnschrift Condensed', 'Arial Narrow', sans-serif; /* Changed font to Bahnschrift Condensed with fallbacks */
     background-color: #f0f0f0; /* Light gray background */
     position: relative;
     min-height: 100vh;
